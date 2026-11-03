@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <!-- Pau Navarro · Cortes de tendencia: mullet y gafas -->
+  <rect width="400" height="500" fill="#e2e0db"/>
+  <!-- mullet: largo atrás -->
+  <path d="M150 300 C150 330 158 352 166 368 L234 368 C242 352 250 330 250 300Z" fill="#6b4a2b"/>
+  <!-- hombros -->
+  <path d="M40 500 C40 420 110 388 200 388 C290 388 360 420 360 500Z" fill="#5c6b5a"/>
+  <!-- cuello -->
+  <rect x="176" y="318" width="48" height="82" rx="22" fill="#eabf9c"/>
+  <!-- orejas y cara -->
+  <ellipse cx="130" cy="262" rx="12" ry="18" fill="#e1b08b"/>
+  <ellipse cx="270" cy="262" rx="12" ry="18" fill="#e1b08b"/>
+  <ellipse cx="200" cy="255" rx="70" ry="86" fill="#eabf9c"/>
+  <!-- arriba: volumen con flequillo desordenado -->
+  <path d="M124 250 C114 168 165 145 205 147 C258 150 292 180 278 250 C270 222 258 206 244 200 C236 214 214 222 196 214 C186 226 160 230 146 222 C136 230 128 240 124 250Z" fill="#6b4a2b"/>
+  <path d="M150 170 q12 -16 26 -4 M196 160 q14 -14 28 0 M236 168 q12 -10 22 4" stroke="#4e341d" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- costado rapado (undercut) -->
+  <path d="M128 236 C126 250 126 262 128 272 L138 270 C136 258 136 248 138 238Z" fill="#6b4a2b" opacity=".35"/>
+  <!-- gafas -->
+  <g fill="none" stroke="#171717" stroke-width="4">
+    <rect x="152" y="238" width="44" height="34" rx="12"/>
+    <rect x="204" y="238" width="44" height="34" rx="12"/>
+    <path d="M196 252 Q200 247 204 252"/>
+  </g>
+  <circle cx="174" cy="256" r="5" fill="#171717"/>
+  <circle cx="226" cy="256" r="5" fill="#171717"/>
+  <path d="M152 230 L194 226" stroke="#4e341d" stroke-width="7" stroke-linecap="round"/>
+  <path d="M206 226 L248 230" stroke="#4e341d" stroke-width="7" stroke-linecap="round"/>
+  <!-- barba de pocos días y bigote -->
+  <path d="M132 272 C136 320 168 342 200 342 C232 342 264 320 268 272 C258 300 240 314 200 316 C160 314 142 300 132 272Z" fill="#6b4a2b" opacity=".35"/>
+  <path d="M176 302 Q200 290 224 302 Q200 308 176 302Z" fill="#6b4a2b"/>
+  <path d="M200 270 Q195 288 204 292" stroke="#c48d68" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M186 316 Q200 322 214 316" stroke="#8a4b3d" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- arito -->
+  <circle cx="270" cy="284" r="4" fill="#c9a24a"/>
+  <!-- tijera -->
+  <g transform="translate(316 420) rotate(-40)" fill="none" stroke="#f5f5f3" stroke-width="5" stroke-linecap="round">
+    <circle cx="-12" cy="30" r="10"/>
+    <circle cx="12" cy="30" r="10"/>
+    <line x1="-6" y1="21" x2="8" y2="-30"/>
+    <line x1="6" y1="21" x2="-8" y2="-30"/>
+  </g>
+</svg>

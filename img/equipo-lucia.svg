@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <!-- Lucía Ferrer · Color: melena larga con balayage -->
+  <defs>
+    <linearGradient id="balayage" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b2a20"/>
+      <stop offset=".45" stop-color="#7a5235"/>
+      <stop offset="1" stop-color="#e2c08d"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="#efe6dc"/>
+  <!-- pelo de atrás -->
+  <path d="M118 250 C105 150 160 135 200 135 C250 135 298 160 284 255 C278 320 300 380 296 440 L104 440 C100 380 124 320 118 250Z" fill="url(#balayage)"/>
+  <!-- hombros -->
+  <path d="M40 500 C40 420 110 388 200 388 C290 388 360 420 360 500Z" fill="#171717"/>
+  <!-- cuello -->
+  <rect x="176" y="318" width="48" height="82" rx="22" fill="#e9b996"/>
+  <!-- orejas y cara -->
+  <ellipse cx="130" cy="262" rx="12" ry="18" fill="#e3ad88"/>
+  <ellipse cx="270" cy="262" rx="12" ry="18" fill="#e3ad88"/>
+  <ellipse cx="200" cy="255" rx="70" ry="86" fill="#e9b996"/>
+  <!-- pelo de adelante, raya al costado -->
+  <path d="M128 262 C118 180 160 160 205 162 C250 164 285 190 272 262 C262 222 240 200 215 196 C190 215 160 225 128 262Z" fill="url(#balayage)"/>
+  <path d="M128 262 C124 320 132 380 140 440 L112 440 C104 380 112 320 128 262Z" fill="url(#balayage)"/>
+  <path d="M272 262 C278 320 270 380 262 440 L290 440 C296 380 288 320 272 262Z" fill="url(#balayage)"/>
+  <!-- cara -->
+  <path d="M168 240 Q178 234 188 240" stroke="#3b2a20" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M212 240 Q222 234 232 240" stroke="#3b2a20" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <circle cx="178" cy="258" r="5" fill="#171717"/>
+  <circle cx="222" cy="258" r="5" fill="#171717"/>
+  <path d="M200 266 Q195 284 204 288" stroke="#c98d6a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M184 304 Q200 316 216 304" stroke="#b5524a" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- aros -->
+  <circle cx="132" cy="288" r="6" fill="none" stroke="#c9a24a" stroke-width="3"/>
+  <circle cx="268" cy="288" r="6" fill="none" stroke="#c9a24a" stroke-width="3"/>
+  <!-- pincel de tinte -->
+  <g transform="translate(300 400) rotate(-35)">
+    <rect x="-6" y="-10" width="12" height="70" rx="5" fill="#f5f5f3"/>
+    <rect x="-10" y="-34" width="20" height="26" rx="3" fill="#7a5235"/>
+  </g>
+</svg>
