@@ -202,6 +202,10 @@
     .summary .btn { width: 100%; }
     .summary__ok { display: none; background: var(--sage-soft); color: var(--forest); padding: 12px 14px; font-size: 13px; }
     .summary__ok.is-visible { display: block; }
+    .summary__ok.is-error { background: #f3e6dc; color: #6b3f22; }
+    .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; cursor: pointer; }
+    .consent input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--accent); flex-shrink: 0; }
+    .consent a { color: var(--accent); }
 
     /* Nosotros: imagen + texto */
     .split { display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; background: var(--cream); }
@@ -241,9 +245,8 @@
       margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.15);
       font-size: 11px; color: #9aa79f;
     }
-    .credits { margin-top: 16px; font-size: 10px; line-height: 1.7; color: #8a978f; }
-    .credits summary { cursor: pointer; text-transform: uppercase; letter-spacing: .06em; }
-    .credits p { margin-top: 8px; max-width: 900px; }
+    .footer__bottom a { color: #c9d1cb; }
+    .footer__bottom a:hover { color: #fff; }
 
     /* Responsive */
     @media (max-width: 1024px) {
@@ -304,7 +307,7 @@
     <section class="section" id="cortes">
       <div class="section__head">
         <h2>Nuestros cortes<span class="dot">.</span></h2>
-        <p>Los clásicos que más nos piden. Precios orientativos.</p>
+        <p>Los clásicos que más nos piden. Precios orientativos, IVA incluido.</p>
       </div>
       <div class="cuts">
         <article class="cut">
@@ -362,7 +365,7 @@
     <section class="salon" aria-label="El salón">
       <img src="img/salon.jpg" alt="Barbería con dos sillones frente a los espejos" loading="lazy">
       <div class="salon__text">
-        <p class="label">València · Desde 2026</p>
+        <p class="label">València</p>
         <p class="salon__word">BELUQUERIA</p>
         <span class="salon__line"></span>
         <p class="label">Cortes · Color · Barbería</p>
@@ -407,7 +410,7 @@
     <section class="section booking" id="reservar">
       <div class="section__head">
         <h2>Reservá tu turno<span class="dot">.</span></h2>
-        <p>Elegí servicio, peluquero, día y horario. Confirmamos por WhatsApp.</p>
+        <p>Elegí servicio, peluquero, día y horario. La disponibilidad es orientativa: tu turno queda reservado cuando te lo confirmamos por WhatsApp.</p>
       </div>
       <div class="booking__grid">
         <div class="panel">
@@ -446,6 +449,10 @@
               <label for="clientName">Tu nombre</label>
               <input id="clientName" type="text" autocomplete="name" placeholder="Nombre y apellido">
             </div>
+            <label class="consent">
+              <input type="checkbox" id="consent">
+              <span>He leído y acepto la <a href="privacidad.html" target="_blank">política de privacidad</a>.</span>
+            </label>
             <button type="button" class="btn btn--solid" id="confirm" disabled>Confirmar por WhatsApp</button>
             <p class="summary__ok" id="ok" role="status"></p>
             <p class="summary__note">Te respondemos por WhatsApp para confirmar. Si no podés venir, avisanos con 24 h.</p>
@@ -494,16 +501,12 @@
       </div>
     </div>
     <div class="footer__big">BELUQUERIA</div>
-    <div class="footer__bottom">© 2026 BELUQUERIA</div>
-    <details class="credits">
-      <summary>Créditos de fotos</summary>
-      <p>
-        Fotos de Wikimedia Commons:
-        Wilfredor (CC0) · Alex Neman (CC BY-SA 4.0) · Hair Spies (CC BY 2.0) ·
-        Liege (CC0) · Classic Barbers (CC0) · Absock (CC0) · Thirteen Of Clubs (CC BY-SA 2.0) ·
-        Mark Bonica (CC BY 2.0) · Wordzandguitar (CC BY-SA 4.0) · Amuzujoe (CC BY-SA 4.0) · Daderot (CC0).
-      </p>
-    </details>
+    <div class="footer__bottom">
+      © 2026 BELUQUERIA ·
+      <a href="aviso-legal.html">Aviso legal</a> ·
+      <a href="privacidad.html">Política de privacidad</a> ·
+      <a href="aviso-legal.html#creditos">Créditos de fotos</a>
+    </div>
   </footer>
 
   <a href="https://wa.me/34600000000" class="whatsapp" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
@@ -651,12 +654,12 @@
 
     function renderSummary() {
       const sel = current(), sum = $('summary');
-      $('ok').classList.remove('is-visible');
+      $('ok').classList.remove('is-visible', 'is-error');
       sum.textContent = '';
       if (!sel) { sum.textContent = 'Todavía no elegiste horario.'; $('confirm').disabled = true; return; }
       const b = t => { const s = document.createElement('strong'); s.textContent = t; return s; };
       sum.append(b(sel.service.name), ' con ', b(sel.who.name), sel.auto ? ' (te asignamos)' : '',
-        ' · ', b(longDate(state.date)), ' a las ', b(state.time), ` · ${sel.service.price} €`);
+        ' · ', b(longDate(state.date)), ' a las ', b(state.time), ` · ${sel.service.price} € (IVA incl.)`);
       $('confirm').disabled = false;
     }
 
@@ -673,12 +676,19 @@
     $('confirm').addEventListener('click', () => {
       const sel = current(), nameEl = $('clientName'), name = nameEl.value.trim();
       if (!sel) return;
+      const ok = $('ok');
       if (!name) { nameEl.focus(); nameEl.placeholder = 'Escribí tu nombre para reservar'; return; }
+      if (!$('consent').checked) {
+        ok.textContent = 'Para reservar tenés que aceptar la política de privacidad.';
+        ok.classList.add('is-visible', 'is-error');
+        $('consent').focus();
+        return;
+      }
       const msg = `Hola BELUQUERIA, soy ${name}. Quiero reservar ${sel.service.name} con ${sel.who.name} ` +
         `el ${longDate(state.date).toLowerCase()} a las ${state.time}. ¡Gracias!`;
       window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
-      const ok = $('ok');
       ok.textContent = `¡Listo, ${name}! Te abrimos WhatsApp con tu reserva para enviarla.`;
+      ok.classList.remove('is-error');
       ok.classList.add('is-visible');
     });
 

@@ -5,7 +5,11 @@ Página web de la peluquería. Es HTML y CSS puro, sin dependencias.
 ## Archivos
 
 - `index.html` — la página
+- `aviso-legal.html` — aviso legal (LSSI) y créditos de fotos
+- `privacidad.html` — política de privacidad (RGPD)
 - `img/` — fotos de los cortes
+
+Antes de publicar, completá los datos resaltados en amarillo en `aviso-legal.html` y `privacidad.html`.
 
 ## Publicar en GitHub Pages
 
